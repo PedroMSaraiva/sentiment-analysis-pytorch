@@ -19,7 +19,7 @@ def tokenizer(text):
     return [token.lower() for token in tokens if token.isalnum()]
 
 
-def predict_sentiment(model, text, vocab, device=torch.device('cpu')):
+def predict_sentiment(model, text, vocab, device):
     """
     Transforma o texto em tensores baseado no vocabulário e alimenta
     o modelo NBoW para predizer o sentimento (Positivo ou Negativo).
@@ -29,9 +29,8 @@ def predict_sentiment(model, text, vocab, device=torch.device('cpu')):
     tokens = tokenizer(text)
     indices = [vocab.get(word, vocab.get("<unk>")) for word in tokens]
 
-    # Se a frase for inválida ou vazia de palavras do nosso vocab
     if len(indices) == 0:
-        return "Inválido", 0.5
+        return [vocab["<unk>"]]
 
     tensor = torch.LongTensor(indices).to(device)
     tensor = tensor.unsqueeze(0)
