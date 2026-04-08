@@ -15,6 +15,6 @@ RUN python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
 COPY app /app/app
 COPY notebooks /app/notebooks
 
-EXPOSE 8501
+EXPOSE 8503
 
-CMD ["streamlit", "run", "app/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "app/app.py", "--server.port=8503", "--server.address=0.0.0.0"]
