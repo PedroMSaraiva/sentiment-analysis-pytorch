@@ -7,7 +7,7 @@ def load_vocab(vocab_path):
     """Carrega o arquivo json com o vocabulário."""
     with open(vocab_path, 'r', encoding='utf-8') as f:
         return json.load(f)
-    
+
 
 def tokenizer(text):
     """

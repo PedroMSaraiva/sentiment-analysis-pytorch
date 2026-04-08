@@ -1,5 +1,6 @@
 import torch.nn as nn
 
+
 class NBoWModel(nn.Module):
     def __init__(self, vocab_size, embedding_dim, output_dim, pad_idx):
         super().__init__()
